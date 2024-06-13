@@ -32,7 +32,7 @@ param appServicePlanName string
 @description('Default App Service to test App Gateway Deployment')
 param defaultAppServiceUrl string
 
-@description('Create Public IP for App Gateway')
+@description('Create Public IP name for App Gateway')
 var publicIpName = 'pip-${appGatewayName}'
 
 @description('Module to deploy User Assigned Managed Identity')
@@ -69,6 +69,7 @@ module wafPolicy 'modules/appGatewayWafPolicy.bicep' = {
   }
 }
 
+@description('Module to create Public IP')
 module publicIP 'modules/publicIP.bicep' = {
   name: publicIpName
   params: {
