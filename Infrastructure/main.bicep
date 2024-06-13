@@ -116,7 +116,7 @@ module appGateway 'modules/appGateway.bicep' = if (firstRun == false) {
     keyVaultName: keyVaultName
     certName: certName
     appServiceURL: defaultAppServiceUrl
-    userAssignedIdentity: userAssignedManagedIdentity.outputs.resourceId
+    userAssignedIdentity: uamiName
   }
 }
 

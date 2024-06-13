@@ -3,7 +3,7 @@ Bicep templates to deploy an Azure App Gateway along with supporting infrastruct
 Steps to deploy this example are:
 
 1. Run Infrastructure main with firstRun parameter set to 'true' to deploy KeyVault, WAF Policy, vnet, App Service Plan and managed identity.
-2. Upload certificate (pfx) to keyvault and record name.
+2. Upload certificate (pfx) to keyvault and record name.  Temporarily create yourself an access policy on the KeyVault then remove it once done.
 3. Create DNS record for domain name pointing to public IP created in step 1.
 4. Run webApps main with firstRun parameter set to 'true' to deploy App Service and record Custom Domain Verification ID and default url for App Service.
 5. create a TXT record with the DNS provider host: asuid  value: custom domain Verification ID.

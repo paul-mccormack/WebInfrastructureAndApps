@@ -1,19 +1,19 @@
 using './main.bicep'
 
 param tags = {
-  'Created by': 'Paul McCormack'
-  'Management Area': 'DDaT'
-  Service: 'Websites'
-  Purpose: 'Production'
-  Recharge: 'DDaT'
+  'Created by': ''
+  'Management Area': ''
+  Service: ''
+  Purpose: ''
+  Recharge: ''
 }
 
-param firstRun = false
-param keyVaultName = 'kv-prod-websites-cert'
-param keyVaultSecretName = 'wildcard'
-param uamiName = 'uami-prod-websites-keyvault'
-param vnetName = 'vnet-prod-websites'
-param appServicePlanName = 'asp-uks-prod-websites01'
-param appServicePrefix = 'default'
-param customDomainName = 'testdeploy.howdoyou.cloud'
-param sslThumbprint = 'CFEADA6E28F1FD26F58C4639A56B6188AC742CC5'
+param firstRun = true
+param keyVaultName = ''
+param keyVaultSecretName = ''
+param uamiName = ''
+param vnetName = ''
+param appServicePlanName = ''
+param appServicePrefix = ''
+param customDomainName = ''
+param sslThumbprint = ''
