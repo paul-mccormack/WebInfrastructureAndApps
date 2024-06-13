@@ -1,10 +1,3 @@
-// https://techcommunity.microsoft.com/t5/apps-on-azure-blog/tutorials-integrate-application-gateway-with-app-service-behind/ba-p/3922973
-// https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#access-restriction-rules-based-on-service-endpoints
-// https://learn.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions?tabs=azurecli
-
-//https://learn.microsoft.com/en-us/azure/app-service/overview-app-gateway-integration
-
-
 @description('Location of resources from location of Resource Group')
 param location string = resourceGroup().location
 

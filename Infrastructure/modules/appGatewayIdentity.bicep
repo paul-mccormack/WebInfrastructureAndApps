@@ -1,4 +1,3 @@
-
 param location string
 param uamiName string
 param tags object
