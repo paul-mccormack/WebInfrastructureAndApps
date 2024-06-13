@@ -279,7 +279,7 @@ resource appGateway 'Microsoft.Network/applicationGateways@2023-11-01' = {
     ]
 sslCertificates: [
       {
-        name: 'wildCard'
+        name: certName
         properties: {
           keyVaultSecretId: 'https://${keyVaultName}${environment().suffixes.keyvaultDns}/secrets/${certName}'
         }
