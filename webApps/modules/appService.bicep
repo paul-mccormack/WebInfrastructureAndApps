@@ -61,6 +61,15 @@ resource appService 'Microsoft.Web/sites@2023-12-01' = {
     clientAffinityEnabled: false
   }
 }
+resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2023-12-01' = {
+  name: 'vnetIntegration'
+  parent: appService
+  properties: {
+    vnetResourceId: '${vnet.id}/subnets/BackendSubnet'
+    isSwift: true
+  }
+}
+
 
 resource appServiceConfig 'Microsoft.Web/sites/config@2023-12-01' = {
   parent: appService
