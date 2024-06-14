@@ -1,14 +1,13 @@
-param location string = resourceGroup().location
-param appServiceName string = 'testwebapp-${uniqueString(resourceGroup().id)}'
+param location string
+param appServiceName string
 param tags object
 param keyVaultName string
 param keyVaultSecretName string
 param appServicePlanName string
 param uamiName string
 param vnetName string
+
 var azureTenantId = tenant().tenantId
-
-
 
 var configReferenceWindows = {
   metadata: [
@@ -59,6 +58,7 @@ resource appService 'Microsoft.Web/sites@2023-12-01' = {
     siteConfig: configReferenceWindows
     httpsOnly: true
     clientAffinityEnabled: false
+    virtualNetworkSubnetId: '${vnet.id}/subnets/BackendSubnet'
   }
 }
 resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2023-12-01' = {
@@ -70,13 +70,13 @@ resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2023-12-
   }
 }
 
-
 resource appServiceConfig 'Microsoft.Web/sites/config@2023-12-01' = {
   parent: appService
   name: 'web'
   properties: {
     netFrameworkVersion: 'v8.0'
     publicNetworkAccess: 'Enabled'
+    vnetRouteAllEnabled: true
     ipSecurityRestrictionsDefaultAction: 'Deny'
     ipSecurityRestrictions: [
       {
