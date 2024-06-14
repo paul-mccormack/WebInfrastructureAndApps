@@ -22,6 +22,7 @@ param vnetName string
 param vnetPrefix string
 param agSubnetPrefix string
 param backendSubnetPrefix string
+param SqlSubnetPrefix string
 
 @description('App Gateway Name')
 param appGatewayName string
@@ -89,6 +90,7 @@ module vnet 'modules/vnet.bicep' = {
     vnetPrefix: vnetPrefix
     agSubnetPrefix: agSubnetPrefix
     backendSubnetPrefix: backendSubnetPrefix
+    SqlSubnetPrefix: SqlSubnetPrefix
   }
 }
 

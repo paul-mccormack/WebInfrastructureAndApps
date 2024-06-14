@@ -4,6 +4,7 @@ param vnetName string
 param vnetPrefix string
 param agSubnetPrefix string
 param backendSubnetPrefix string
+param SqlSubnetPrefix string
 
 resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
@@ -37,6 +38,15 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
           privateLinkServiceNetworkPolicies: 'Enabled'
         }
       }
+      {
+        name: 'SqlSubnet'
+        properties: {
+          addressPrefix: SqlSubnetPrefix
+          privateEndpointNetworkPolicies: 'Enabled'
+          privateLinkServiceNetworkPolicies: 'Enabled'
+        }
+      }
+
     ]
     enableDdosProtection: false
     enableVmProtection: false
